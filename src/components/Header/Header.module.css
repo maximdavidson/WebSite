@@ -1,0 +1,15 @@
+.header{
+   grid-area: h;
+   background: #2f2f2f;
+   border-radius: 10px;
+   justify-content: flex-start;
+   align-items: center;
+   padding-left: 20px;
+
+ }
+ 
+ .header_title{
+   font-family: "Ojuju", sans-serif;
+   font-size: 30px;
+   font-weight: 800;
+ }
