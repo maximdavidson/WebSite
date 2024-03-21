@@ -4,19 +4,19 @@ import c from './Navbar.module.css';
 function Navbar() {
    return(
       <nav className={c.nav}>
-        <div>
+        <div className={c.item}>
           <a>Profile</a>
         </div>
-        <div>
+        <div className={c.item}>
           <a>Messages</a>
         </div>
-        <div>
+        <div className={c.item}>
           <a>News</a>
         </div>
-        <div>
+        <div className={c.item}>
           <a>Music</a>
         </div>
-        <div>
+        <div className={c.item}>
           <a>Settings</a>
         </div>
       </nav>

@@ -1,15 +1,15 @@
 import React from "react";
+import c from './Post.module.css'
 
-
-function Post() {
+function Post(props) {
    return(
-      <div>
+      <div className={c.item}>
+         {props.message}
          <div>
-          Post1
-        </div>
-        <div>
-          Post2
-        </div>
+            <span>
+               like
+            </span>
+         </div>
       </div>
    )
 }

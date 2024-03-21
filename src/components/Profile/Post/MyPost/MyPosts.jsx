@@ -8,12 +8,12 @@ function MyPosts(){
          <div>
           My post
         </div>
-        <div>
+        <div className={c.input}>
           <textarea></textarea>
-          <button>Add post</button>
+          <button className={c.btn}>Add post</button>
         </div>
-        <Post/>
-        <Post/>
+        <Post message='Hello, how are you?'/>
+        <Post message='Let`s drink a tea!'/>
       </div>
    )
 }

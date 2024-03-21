@@ -1,3 +1,22 @@
 .nav{
    grid-area: n;
- }
+}
+
+.item{
+  padding-bottom: 24px;
+  font-family: "Roboto Mono", monospace;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.item:first-child{
+  padding-top: 50px;
+}
+
+.item:last-child{
+  padding-bottom: 0;
+}
+
+.item:hover{
+  color:rgb(86, 82, 121);
+}
