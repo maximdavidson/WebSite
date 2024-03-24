@@ -5,7 +5,7 @@ import MyPosts from "./Post/MyPost/MyPosts";
 
 function Profile() {
    return(
-      <main className={c.content}>
+      <main>
         <div>
           ava + desc
         </div>
