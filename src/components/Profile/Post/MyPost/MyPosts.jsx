@@ -2,15 +2,10 @@ import React from "react";
 import c from '../MyPost/MyPost.module.css'
 import Post from "../Post";
 
-function MyPosts(){
-
-   let postData = [
-      {id: 1, message: 'Hello, how are you?', likesCount: 10},
-      {id: 2, message: 'Let`s drink a tea!', likesCount: 12},
-   ]
+function MyPosts(props){
 
    let postsElements =
-   postData.map( (post) => <Post message={post.message} likesCount={post.likesCount}/>)
+   props.postData.map( (post) => <Post message={post.message} likesCount={post.likesCount}/>)
 
    return(
       <div>

@@ -21,24 +21,12 @@ function Message(props){
 
 function Dialogs(props){
 
-   let dialogData = [
-      {id: 1, name: 'Maxim'},
-      {id: 2, name: 'Vlad'},
-      {id: 3, name: 'Sasha'},
-   ]
-
-   let messagesData = [
-      {id: 1, message: 'Hello'},
-      {id: 2, message: 'How is going?'},
-      {id: 3, message: 'What about today?'},
-   ]
-
-   let dialogsElements = dialogData
-   .map( (dialog) => <DialogItem name={dialog.name} id={dialog.id}/>);
+   let dialogsElements = 
+   props.dialogData.map( (dialog) => <DialogItem name={dialog.name} id={dialog.id}/>);
 
 
-   let messagesElements = messagesData
-   .map( (message) => <Message message={message.message}/> );
+   let messagesElements = 
+   props.messagesData.map( (message) => <Message message={message.message}/> );
    
 
    return(

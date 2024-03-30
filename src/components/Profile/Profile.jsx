@@ -4,11 +4,12 @@ import MyPosts from "./Post/MyPost/MyPosts";
 import ProfileInfo from "./Post/ProfileInfo/ProfileInfo";
 
 
-function Profile() {
+function Profile(props) {
+
    return(
       <main>
         <ProfileInfo/>
-        <MyPosts/>
+        <MyPosts postData={props.postData}/>
       </main>
    )
 }
