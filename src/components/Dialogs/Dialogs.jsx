@@ -1,49 +1,69 @@
 import React from "react";
-import c from './Dialogs.module.css'
+import c from "./Dialogs.module.css";
 import { NavLink } from "react-router-dom";
+import {
+  sendMessageCreator,
+  updateNewMessageBodyCreator,
+} from "../../redux/state";
 
-function DialogItem(props){
-   let path = '/dialog/ + props.id'
-   return(
-      <div className={c.dialog}>
-         <NavLink to={path}>{props.name}</NavLink> 
-      </div>
-   )
+function DialogItem(props) {
+  let path = "/dialog/ + props.id";
+  return (
+    <div className={c.dialog}>
+      <NavLink to={path}>{props.name}</NavLink>
+    </div>
+  );
 }
 
-function Message(props){
-   return(
-      <div className={c.message}>
-         {props.message}
-      </div>
-   )
+function Message(props) {
+  return <div className={c.message}>{props.message}</div>;
 }
 
-function Dialogs(props){
+function Dialogs(props) {
+  let state = props.store.getState().messagesPage;
 
-   let dialogsElements = 
-   props.state.dialogData.map( (dialog) => <DialogItem name={dialog.name} id={dialog.id}/>);
+  let dialogsElements = state.dialogData.map((dialog) => (
+    <DialogItem name={dialog.name} id={dialog.id} />
+  ));
 
+  let messagesElements = state.messagesData.map((message) => (
+    <Message message={message.message} />
+  ));
 
-   let messagesElements = 
-   props.state.messagesData.map( (message) => <Message message={message.message}/> );
-   
+  let newMessageBody = state.newMessageBody;
 
-   return(
-      <div className={c.dialogs}>
-         <div className={c.dialogsItems}>
+  let onSendMessageClick = () => {
+    props.store.dispatch(sendMessageCreator());
+  };
 
-         {dialogsElements}
+  let onNewMessageChange = (e) => {
+    let body = e.target.value;
+    props.store.dispatch(updateNewMessageBodyCreator(body));
+  };
 
-         </div>
+  return (
+    <div className={c.dialogs}>
+      <div className={c.dialogsItems}>{dialogsElements}</div>
 
-         <div className={c.messages}>
-
-         {messagesElements}
-
-         </div>
+      <div className={c.messages}>
+        <div>{messagesElements}</div>
+        <div>
+          <div>
+            <div>
+              <textarea
+                value={newMessageBody}
+                placeholder="Enter your message"
+                onChange={onNewMessageChange}
+              ></textarea>
+            </div>
+            <div>
+              <button onClick={onSendMessageClick}>Send</button>
+            </div>
+          </div>
+        </div>
       </div>
-   )
+    </div>
+  );
 }
 
-export default Dialogs
+export default Dialogs;
