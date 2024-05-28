@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import {
   sendMessageCreator,
   updateNewMessageBodyCreator,
-} from "../../redux/state";
+} from "../../redux/dialogs-reducer";
 
 function DialogItem(props) {
   let path = "/dialog/ + props.id";
