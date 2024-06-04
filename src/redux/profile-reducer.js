@@ -6,24 +6,29 @@ let initialState = {
     { id: 1, message: "Hello, how are you?", likesCount: 10 },
     { id: 2, message: "Let`s drink a tea!", likesCount: 12 },
   ],
-  newPostText: "Write something)",
+  newPostText: "Write something",
 };
 
 const profileReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_POST:
+    case ADD_POST: {
       let newPost = {
         id: 5,
         message: state.newPostText,
         likesCount: 0,
       };
-
-      state.postData.push(newPost);
-      state.newPostText = "";
-      return state;
-    case UPDATE_NEW_POST_TEXT:
-      state.newPostText = action.newText;
-      return state;
+      return {
+        ...state,
+        postData: [...state.postData, newPost],
+        newPostText: "",
+      };
+    }
+    case UPDATE_NEW_POST_TEXT: {
+      return {
+        ...state,
+        newPostText: action.newText,
+      };
+    }
     default:
       return state;
   }
